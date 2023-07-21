@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:study_flutter_12_dogfoot02_paint/screen/drawing_page/local_utils/drawing_provider.dart';
 
-class DrawingPage extends StatelessWidget {
+class DrawingPage extends StatefulWidget {
   const DrawingPage({super.key});
 
+  @override
+  State<DrawingPage> createState() => _DrawingPageState();
+}
+
+class _DrawingPageState extends State<DrawingPage> {
   @override
   Widget build(BuildContext context) {
     var p = Provider.of<DrawingProvider>(context);
