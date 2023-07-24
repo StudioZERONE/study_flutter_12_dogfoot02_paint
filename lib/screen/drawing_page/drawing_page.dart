@@ -154,14 +154,14 @@ class DrawingPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     for (var oneLine in lines) {
-      Color color = Colors.white;
-      double size = 1.0;
+      Color color = Colors.black;
+      double size = 3.0;
       var l = <Offset>[];
       var p = Path();
 
       for (var oneDot in oneLine) {
-        color ??= oneDot.color;
-        size ??= oneDot.size;
+        color = oneDot.color;
+        size = oneDot.size;
         l.add(oneDot.offset);
       }
 
