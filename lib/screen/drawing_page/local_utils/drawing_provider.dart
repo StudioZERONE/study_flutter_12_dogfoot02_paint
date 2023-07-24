@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:study_flutter_12_dogfoot02_paint/model/dot_info.dart';
 
@@ -38,5 +40,18 @@ class DrawingProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void erase(Offset offset) {}
+  void erase(Offset offset) {
+    const eraseGap = 15;
+    for (var oneLine in List<List<DotInfo>>.from(lines)) {
+      for (var oneDot in oneLine) {
+        if (sqrt(pow((offset.dx - oneDot.offset.dx), 2) +
+                pow((offset.dy - oneDot.offset.dy), 2)) <
+            eraseGap) {
+          lines.remove(oneLine);
+          break;
+        }
+      }
+    }
+    notifyListeners();
+  }
 }
